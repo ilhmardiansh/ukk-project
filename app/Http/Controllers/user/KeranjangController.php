@@ -32,11 +32,19 @@ class KeranjangController extends Controller
 
     public function simpan(Request $request)
     {
-        Keranjang::create([
-            'user_id' => $request->user_id,
-            'products_id' => $request->products_id,
-            'qty' => $request->qty
-        ]);
+
+        $check = Keranjang::where('user_id', $request->user_id)->where('products_id', $request->products_id)->first();
+
+        if(empty($check)){
+            Keranjang::create([
+                'user_id' => $request->user_id,
+                'products_id' => $request->products_id,
+                'qty' => $request->qty
+            ]);
+        }else{
+            $qty = $request->qty+$check->qty;
+            $check->update(['qty' => $qty]);
+        }
 
         return redirect()->route('user.keranjang');
     }

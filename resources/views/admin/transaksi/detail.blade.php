@@ -84,11 +84,18 @@
                             <td>:</td>
                             <td  class="p-2">{{ $order->pesan }}</td>
                         </tr>
-                        @if($order->bukti_pembayaran != null)
+                        {{-- @php
+                            dd($order);
+                        @endphp --}}
+                        @if($order->bukti_pembayaran != null && $order->metode_pembayaran != 'cod')
+                        {{-- @php
+                        dd($order->bukti_pembayaran);
+
+                        @endphp --}}
                         <tr>
                             <td>Bukti Pembayaran</td>
                             <td>:</td>
-                            <td  class="p-2"><img src="{{ asset('storage/'.$order->bukti_pembayaran) }}" alt="" srcset="" class="img-fluid" width="300"></td>
+                            <td  class="p-2"><img src="{{ asset($order->bukti_pembayaran) }}" alt="" srcset="" class="img-fluid" width="300"></td>
                         </tr>
                         @if($order->status_order_id == 2)
                         <tr>
@@ -99,6 +106,15 @@
                             </td>
                         </tr>
                         @endif
+                        @endif
+                        @if($order->metode_pembayaran == 'cod')
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td  class="p-2"><a href="{{ route('admin.transaksi.konfirmasi',['id' => $order->id]) }}" onclick="return confirm('Yakin ingin mengonfirmasi pesanan ini?')" class="btn btn-primary mt-1">Konfirmasi</a><br>
+                            <small>Konfirmasi jika Pesanan COD Diterima</small>
+                            </td>
+                        </tr>
                         @endif
                         @if($order->status_order_id == 3)
                         <tr>
@@ -152,5 +168,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection

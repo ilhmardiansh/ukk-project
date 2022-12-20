@@ -47,7 +47,7 @@
                             </form>
                         </div>
                     </div>
-                    @endif
+                    @else
                     <div class="row">
                         <div class="col-md-12">
                             <table>
@@ -60,6 +60,7 @@
                               <small><a href="{{ route('admin.pengaturan.ubahalamat',['id' =>  $alamat->id]) }}">Klik untuk mengubah alamat toko</a></small>
                         </div>
                     </div>
+                    @endif
                   </div>
                 </div>
               </div>

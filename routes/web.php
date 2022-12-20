@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
+Route::get('/admin/login', function(){
+    return view('auth.login2');
+})->name('admin.login');
 Route::get('/','user\WelcomeController@index')->name('home');
 Route::get('/home','user\WelcomeController@index')->name('home2');
 Route::get('/kontak','user\WelcomeController@kontak')->name('kontak');
@@ -26,7 +29,7 @@ Route::get('/pelanggan',function(){
     return 'Pelanggan';
 });
 
-Route::group(['middleware' => ['auth','checkRole:admin']],function(){    
+Route::group(['middleware' => ['auth','checkRole:admin']],function(){
     Route::get('/admin','DashboardController@index')->name('admin.dashboard');
     Route::get('/pengaturan/alamat','admin\PengaturanController@aturalamat')->name('admin.pengaturan.alamat');
     Route::get('/pengaturan/ubahalamat/{id}','admin\PengaturanController@ubahalamat')->name('admin.pengaturan.ubahalamat');

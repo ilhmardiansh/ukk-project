@@ -13,7 +13,7 @@ class KategoriController extends Controller
        //menampilkan data sesua kategori yang diminta user
         return view('user.kategori', [
             'produks' => Product::where('categories_id',$id)->paginate(5),
-            'categories' => Categories::all()
+            'categories' => Categories::find($id)
         ]);
     }
 }

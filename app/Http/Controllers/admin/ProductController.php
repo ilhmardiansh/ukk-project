@@ -32,8 +32,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         if ($request->file('image')) {
+            
             //simpan foto produk yang di upload ke direkteri public/storage/imageproduct
-            $file = $request->file('image')->store('imageproduct', 'public');
+            $file = $request->file('image')->store('/imageproduct', 'public');
+            // $request->image->move(public_path('storage'), $file);
+            // dd($file);
 
             Product::create([
                 'name'          => $request->name,

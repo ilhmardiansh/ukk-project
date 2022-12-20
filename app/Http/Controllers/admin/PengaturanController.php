@@ -25,6 +25,8 @@ class PengaturanController extends Controller
                 ->join('provinces', 'provinces.province_id', '=', 'cities.province_id')
                 ->select('alamat_toko.*', 'cities.title as kota', 'provinces.title as prov')->first();
         }
+
+        // dd($data);
         return view('admin.pengaturan.alamat', $data);
     }
     public function getCity($id)

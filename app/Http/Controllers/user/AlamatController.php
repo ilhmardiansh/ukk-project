@@ -62,6 +62,8 @@ class AlamatController extends Controller
     }
     public function simpan(Request $request)
     {
+        Alamat::where('user_id', Auth::user()->id)->delete();
+
         //menyimpan alamat user
         Alamat::create([
             'cities_id' => $request->cities_id,

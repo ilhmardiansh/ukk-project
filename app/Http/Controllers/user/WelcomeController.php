@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Categories;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
@@ -11,10 +12,9 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        //menampilkan data produk dihalamam utama user dengan limit 10 data
-        //untuk di carousel
         $data = array(
             'produks' => DB::table('products')->limit(10)->get(),
+            'categories' => Categories::with('product')->get()
         );
         return view('user.welcome', $data);
     }

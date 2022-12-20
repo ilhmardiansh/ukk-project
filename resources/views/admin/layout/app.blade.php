@@ -4,7 +4,7 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>Sport Center</title>
+		<title>IL Store</title>
 		<!-- plugins:css -->
 		<link rel="stylesheet" href="{{ asset('adminassets') }}/assets/vendors/mdi/css/materialdesignicons.min.css">
 		<link rel="stylesheet" href="{{ asset('adminassets') }}/assets/vendors/css/vendor.bundle.base.css">
@@ -19,15 +19,14 @@
 		<link rel="shortcut icon" href="{{ asset('adminassets') }}/assets/images/favicon.png" />
 		<link href="{{ asset('table/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-		<script src="https://cdn.tailwindcss.com"></script>
+		{{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 	</head>
 	<body>
 		<div class="container-scroller">
 			<!-- partial:partials/_navbar.html -->
 			<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 				<div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-					<a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('adminassets') }}/assets/images/logo.svg" alt="logo" /></a>
-					<a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('adminassets') }}/assets/images/logo-mini.svg" alt="logo" /></a>
+                    <img class="brand-logo" src="{{ asset('assets/images/logo.png') }}" alt="">
 				</div>
 				<div class="navbar-menu-wrapper d-flex align-items-stretch">
 					<button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -36,21 +35,16 @@
 					<ul class="navbar-nav navbar-nav-right">
 						<li class="nav-item nav-profile dropdown">
 							<a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-								<div class="nav-profile-img">
-									<img src="{{ asset('adminassets') }}/assets/images/faces/face1.jpg" alt="image">
-									<span class="availability-status online"></span>
-								</div>
 								<div class="nav-profile-text">
-									<p class="mb-1 text-black">Admin SportCentre</p>
+									<p class="mb-1 text-black">Admin</p>
 								</div>
 							</a>
 							<div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-								<a class="dropdown-item" href="#">
-									
+
 									<a class="dropdown-item" href="{{ route('logout') }}"
 										onclick="event.preventDefault();
 																	document.getElementById('logout-form').submit();">
-										<i class="mdi mdi-logout mr-2 text-primary"></i> Logout 
+										<i class="mdi mdi-logout mr-2 text-primary"></i> Logout
 								</a>
 
 								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -71,13 +65,8 @@
 					<ul class="nav">
 						<li class="nav-item nav-profile">
 							<a href="#" class="nav-link">
-								<div class="nav-profile-image">
-									<img src="{{ asset('adminassets') }}/assets/images/faces/face1.jpg" alt="profile">
-									<span class="login-status online"></span>
-									<!--change to offline or busy as needed-->
-								</div>
 								<div class="nav-profile-text d-flex flex-column">
-									<span class="font-weight-bold mb-2">SportCenter</span>
+									<span class="font-weight-bold mb-2">Selamat Datang</span>
 									<span class="text-secondary text-small">Admin</span>
 								</div>
 								<i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -146,10 +135,7 @@
 					<!-- content-wrapper ends -->
 					<!-- partial:partials/_footer.html -->
 					<footer class="footer">
-						<div class="d-sm-flex justify-content-center justify-content-sm-between">
-							<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
-							<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
-						</div>
+
 					</footer>
 					<!-- partial -->
 				</div>
@@ -157,7 +143,8 @@
 			</div>
 			<!-- page-body-wrapper ends -->
 		</div>
-	 
+
+
 		<!-- container-scroller -->
 		<!-- plugins:js -->
 		<script src="{{ asset('adminassets') }}/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -198,7 +185,7 @@
 		</script>
 		@endif
 		<script>
-			
+
 			var t = $('#table').DataTable({
 					"columnDefs": [ {
 							"searchable": false,
